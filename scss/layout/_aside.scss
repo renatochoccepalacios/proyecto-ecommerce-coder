@@ -1,0 +1,26 @@
+
+
+.aside-principal {
+    display: grid;
+    grid-template-columns: 1fr;
+    .aside-logo {
+        img {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+
+    .contenedor-clasificar {
+
+    }
+
+    .contenedor-filtrar {
+        .filtrar-item {
+            a{
+
+            }
+        }
+    }
+}

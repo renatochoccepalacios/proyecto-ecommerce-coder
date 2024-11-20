@@ -1,6 +1,97 @@
-* {
+@charset "UTF-8";
+/* Reset general */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+/* Elimina decoraciones predeterminadas */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* Ajusta tipografía general */
+html {
+  font-size: 100%;
+  /* 16px por defecto */
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  /* Para evitar zoom automático en dispositivos */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  /* Cambiar según preferencia */
+  font-size: 1rem;
+  line-height: 1.6;
+  background-color: #fff;
+  color: #000;
+  overflow-x: hidden;
+  /* Evita scroll horizontal no deseado */
+}
+
+/* Inputs y botones */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+textarea {
+  resize: none;
+}
+
+/* Imágenes y medios */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Tablas */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* Flexbox y Grid */
+:root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.aside-principal {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.aside-principal .aside-logo img {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 /*# sourceMappingURL=style.css.map */
