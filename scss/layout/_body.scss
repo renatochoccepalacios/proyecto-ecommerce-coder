@@ -1,0 +1,23 @@
+body {
+    display: grid;
+    grid-template-areas: 
+        "aside header header header"
+        "aside main main main";
+    grid-template-columns: 300px 1fr 1fr 1fr; // Aside fijo y las demás columnas flexibles
+    grid-template-rows: 80px auto; // Header fijo y main flexible
+
+    
+}
+
+
+.aside-principal {
+    grid-area: aside;
+}
+
+.header-principal {
+    grid-area: header;
+}
+
+.main-principal {
+    grid-area: main;
+}
