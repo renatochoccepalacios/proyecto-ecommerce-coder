@@ -1,6 +1,10 @@
 @use "../utilidades/mixin";
+@use "../utilidades/variables";
+
 
 .aside-principal {
+    background-color: variables.$color-white;
+    position: fixed;
     .nav-principal {
         height: 100vh;
         padding: 2.7rem 2rem;
@@ -37,9 +41,16 @@
                 padding: 0 0 0 20px;
 
                 .filtrar-item {
+                    width: auto;
                     padding: 1rem 0.5rem;
 
                     a {}
+
+                    button {
+                        text-align: start;
+                        border: none;
+                        padding: 0;
+                    }
                 }
             }
         }
@@ -59,5 +70,11 @@
 
     a {
         font-size: 3rem;
+
+        span {
+            bottom: 40%;
+        }
     }
 }
+
+

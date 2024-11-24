@@ -7,6 +7,12 @@
     box-sizing: border-box;
 }
 
+/* Reseteo adicional para parágrafos y encabezados */
+p,
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
 /* Elimina decoraciones predeterminadas */
 a {
     text-decoration: none;
@@ -20,23 +26,18 @@ ol {
 
 /* Ajusta tipografía general */
 html {
-    font-size: 100%;
-    /* 16px por defecto */
+    font-size: 100%; /* 16px por defecto */
     line-height: 1.5;
-    -webkit-text-size-adjust: 100%;
-    /* Para evitar zoom automático en dispositivos */
+    -webkit-text-size-adjust: 100%; /* Para evitar zoom automático en dispositivos */
 }
 
 body {
-    font-family: Arial, sans-serif;
-    /* Cambiar según preferencia */
+    font-family: Arial, sans-serif; /* Cambiar según preferencia */
     font-size: 1rem;
     line-height: 1.6;
     background-color: #fff;
     color: #000;
-    
-    overflow-x: hidden;
-    /* Evita scroll horizontal no deseado */
+    overflow-x: hidden; /* Evita scroll horizontal no deseado */
 }
 
 /* Inputs y botones */
