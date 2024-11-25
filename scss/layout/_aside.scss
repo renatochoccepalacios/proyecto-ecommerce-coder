@@ -5,6 +5,7 @@
 .aside-principal {
     background-color: variables.$color-white;
     position: fixed;
+
     .nav-principal {
         height: 100vh;
         padding: 2.7rem 2rem;
@@ -23,6 +24,7 @@
         .contenedor-clasificar {
             @include mixin.flex-direccion-column;
             gap: 0.95rem;
+
             p {
                 font-weight: bold;
                 text-transform: uppercase;
@@ -32,19 +34,35 @@
 
         .filtrar-container {
             p {
-                font-weight: bold;
-                text-transform: uppercase;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                a {
+                    text-decoration: underline;
+                    color: #606060;
+                    font-size: 0.9rem;
+                }
+
+
 
             }
 
             .lista-filtrar {
-                padding: 0 0 0 20px;
 
                 .filtrar-item {
                     width: auto;
-                    padding: 1rem 0.5rem;
+                    padding: 1rem 0;
+                    display: flex;
+                    justify-content: space-between;
 
-                    a {}
+                    i {
+                        transition: transform 0.3s ease; // Transición para el ícono
+                    }
+
+                    &::marker {
+                        content: '';
+                    }
 
                     button {
                         text-align: start;
@@ -52,11 +70,29 @@
                         padding: 0;
                     }
                 }
+
+                .contenido-filtrar {
+                    height: 0; // Inicialmente colapsado
+                    overflow: hidden;
+                    transition: height 2s ease; // Controla la animación de deslizamiento
+                }
+
+                &[open] {
+
+                    // Selector para el estado abierto
+                    .contenido-filtrar {
+                        height: auto; // Altura máxima visible (ajustar según contenido)
+                    }
+
+                    .filtrar-item i {
+                        transform: rotate(-180deg); // Rota el ícono hacia arriba
+                    }
+                }
             }
         }
     }
 
-    
+
 }
 
 
@@ -76,5 +112,3 @@
         }
     }
 }
-
-

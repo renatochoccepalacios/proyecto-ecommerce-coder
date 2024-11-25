@@ -112,20 +112,42 @@ table {
   text-transform: uppercase;
 }
 .aside-principal .nav-principal .filtrar-container p {
-  font-weight: bold;
-  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.aside-principal .nav-principal .filtrar-container .lista-filtrar {
-  padding: 0 0 0 20px;
+.aside-principal .nav-principal .filtrar-container p a {
+  text-decoration: underline;
+  color: #606060;
+  font-size: 0.9rem;
 }
 .aside-principal .nav-principal .filtrar-container .lista-filtrar .filtrar-item {
   width: auto;
-  padding: 1rem 0.5rem;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+.aside-principal .nav-principal .filtrar-container .lista-filtrar .filtrar-item i {
+  transition: transform 0.3s ease;
+}
+.aside-principal .nav-principal .filtrar-container .lista-filtrar .filtrar-item::marker {
+  content: "";
 }
 .aside-principal .nav-principal .filtrar-container .lista-filtrar .filtrar-item button {
   text-align: start;
   border: none;
   padding: 0;
+}
+.aside-principal .nav-principal .filtrar-container .lista-filtrar .contenido-filtrar {
+  height: 0;
+  overflow: hidden;
+  transition: height 2s ease;
+}
+.aside-principal .nav-principal .filtrar-container .lista-filtrar[open] .contenido-filtrar {
+  height: auto;
+}
+.aside-principal .nav-principal .filtrar-container .lista-filtrar[open] .filtrar-item i {
+  transform: rotate(-180deg);
 }
 
 .header-principal {
@@ -148,25 +170,21 @@ table {
   grid-template-columns: repeat(auto-fit, minmax(min(270px, 100%), 300px));
   justify-content: center;
   gap: 4rem;
-  padding: 4rem 0;
 }
 .main-principal .contenedor-cards .card-item {
   display: flex;
   flex-direction: column;
   padding: 2rem;
   gap: 0.5rem;
-  font-size: clamp(0.1rem, 5vw, 1rem);
+  font-size: clamp(0.1rem, 5vw, 1.25rem);
   gap: 0.5rem;
-  box-shadow: 5px 20px 32px 10px rgba(163, 177, 198, 0.5), -2px -15px 59px 0 rgba(124, 124, 124, 0.6);
+  box-shadow: 5px 20px 32px 10px rgba(163, 177, 198, 0.5), -2px 19px 59px rgba(124, 124, 124, 0.6);
   border-radius: 2.9rem;
 }
 .main-principal .contenedor-cards .card-item figure img {
   width: 100%;
   height: auto;
   object-fit: cover;
-}
-.main-principal .contenedor-cards .card-item .card-titulo {
-  font-size: 1.6rem;
 }
 .main-principal .contenedor-cards .card-item .button-agregar {
   background-color: #000;
