@@ -167,17 +167,16 @@ table {
 
 .main-principal .contenedor-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(270px, 100%), 300px));
+  grid-template-columns: repeat(auto-fit, minmax(min(370px, 100%), 370px));
   justify-content: center;
   gap: 4rem;
 }
 .main-principal .contenedor-cards .card-item {
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 1.5rem;
   gap: 0.5rem;
-  font-size: clamp(0.1rem, 5vw, 1.25rem);
-  gap: 0.5rem;
+  font-size: clamp(0.1rem, 5vw, 1rem);
   box-shadow: 5px 20px 32px 10px rgba(163, 177, 198, 0.5), -2px 19px 59px rgba(124, 124, 124, 0.6);
   border-radius: 2.9rem;
 }
@@ -186,16 +185,27 @@ table {
   height: auto;
   object-fit: cover;
 }
+.main-principal .contenedor-cards .card-item span {
+  color: #9e3500;
+}
+.main-principal .contenedor-cards .card-item .card-titulo {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+.main-principal .contenedor-cards .card-item .card-descrip {
+  color: #606060;
+}
 .main-principal .contenedor-cards .card-item .button-agregar {
   background-color: #000;
   color: #fff;
   width: 100%;
   padding: 0.5rem;
-  border-radius: 20px;
+  font-size: 0.9rem;
 }
 
 body {
   display: grid;
+  min-height: 100vh;
   grid-template-areas: "aside header header header" "aside main main main";
   grid-template-columns: 300px 1fr 1fr 1fr;
   grid-template-rows: 80px auto;
