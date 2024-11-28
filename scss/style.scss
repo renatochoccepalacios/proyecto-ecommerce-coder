@@ -1,6 +1,9 @@
+@use "utilidades/variables";
 @use "base/reset";
+
 @use "layout/aside";
 @use "utilidades/mixin";
 @use "layout/main";
 @use "layout/body";
-
+@use "base/mediaquerys/mq-tablet";
+@use "base/mediaquerys/mq-desktop";

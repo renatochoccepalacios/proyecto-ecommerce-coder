@@ -1,0 +1,19 @@
+@media screen and (min-width: 1024px) {
+    
+    .main-principal {
+        grid-template-columns: 300px 1fr;
+
+        /* para desktop */
+        .aside-principal {
+            position: sticky;
+    
+        }
+        .section-cards {
+            .card-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    }
+
+    
+}
