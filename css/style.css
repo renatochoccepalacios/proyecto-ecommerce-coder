@@ -248,6 +248,7 @@ table {
   }
   .main-principal .aside-principal {
     position: sticky;
+    top: 0;
   }
   .main-principal .section-cards .card-container {
     grid-template-columns: repeat(3, 1fr);
