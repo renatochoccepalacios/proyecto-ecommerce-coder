@@ -1,0 +1,12 @@
+@media screen and (min-width: 600px) {
+    .main-principal {
+        .aside-principal {
+            display: flex;
+        }
+        .section-cards {
+            .card-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    }
+}

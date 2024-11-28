@@ -2,70 +2,18 @@
 @use "../utilidades/variables";
 
 
-.aside-principal {
-    background-color: variables.$color-white;
-    position: fixed;
-    .nav-principal {
-        height: 100vh;
-        padding: 2.7rem 2rem;
-        @include mixin.flex-direccion-column;
-        gap: 2rem;
 
-        .aside-logo {
-            img {
-                max-width: 200px;
-                width: 100%;
-                height: auto;
-                object-fit: cover;
-            }
-        }
-
-        .contenedor-clasificar {
-            @include mixin.flex-direccion-column;
-            gap: 0.95rem;
-            p {
-                font-weight: bold;
-                text-transform: uppercase;
-
-            }
-        }
-
-        .filtrar-container {
-            p {
-                font-weight: bold;
-                text-transform: uppercase;
-
-            }
-
-            .lista-filtrar {
-                padding: 0 0 0 20px;
-
-                .filtrar-item {
-                    width: auto;
-                    padding: 1rem 0.5rem;
-
-                    a {}
-
-                    button {
-                        text-align: start;
-                        border: none;
-                        padding: 0;
-                    }
-                }
-            }
-        }
-    }
-
-    
-}
 
 
 .header-principal {
     width: 100%;
+    position: fixed;
+    background-color: variables.$color-white;
     height: 80px;
     padding: 0 2rem;
     display: flex;
     align-items: center;
+    z-index: 5;
     justify-content: end;
 
     a {
@@ -76,5 +24,3 @@
         }
     }
 }
-
-

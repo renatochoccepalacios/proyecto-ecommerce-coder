@@ -1,5 +1,6 @@
-body {
+/* body {
     display: grid;
+    min-height: 100vh;
     grid-template-areas: 
         "aside header header header"
         "aside main main main";
@@ -20,4 +21,4 @@ body {
 
 .main-principal {
     grid-area: main;
-}
+} */
