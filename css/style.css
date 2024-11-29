@@ -93,7 +93,10 @@ table {
   display: flex;
   align-items: center;
   z-index: 5;
-  justify-content: end;
+  justify-content: space-between;
+}
+.header-principal .btn-hamburguer {
+  font-size: 2rem;
 }
 .header-principal a {
   font-size: 3rem;
@@ -147,10 +150,13 @@ table {
   border-radius: 1.4rem;
 }
 .main-principal .aside-principal {
-  display: none;
+  display: flex;
   flex-direction: column;
   background-color: #fff;
   position: fixed;
+  pointer-events: auto;
+  transition: 0.2s ease;
+  opacity: 0;
   height: 100vh;
   padding: 6.7rem 2rem;
   gap: 2rem;
@@ -208,6 +214,15 @@ table {
 .main-principal .aside-principal .filtrar-container .lista-filtrar[open] .filtrar-item i {
   transform: rotate(-180deg);
 }
+.main-principal .aside-visible {
+  opacity: 1;
+  transform: translateX(0);
+  box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.75);
+}
+.main-principal .aside-oculto {
+  opacity: 0;
+  transform: translateX(-100%);
+}
 
 /* body {
     display: grid;
@@ -234,21 +249,28 @@ table {
     grid-area: main;
 } */
 @media screen and (min-width: 600px) {
-  .main-principal .aside-principal {
-    display: flex;
-  }
   .main-principal .section-cards .card-container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media screen and (min-width: 1024px) {
+  .header-principal {
+    justify-content: end;
+  }
+  .header-principal .btn-hamburguer {
+    display: none;
+  }
   .main-principal {
     grid-template-columns: 300px 1fr;
     /* para desktop */
   }
   .main-principal .aside-principal {
+    display: flex;
     position: sticky;
     top: 0;
+    transform: translateX(0);
+    opacity: 1;
+    box-shadow: none;
   }
   .main-principal .section-cards .card-container {
     grid-template-columns: repeat(3, 1fr);

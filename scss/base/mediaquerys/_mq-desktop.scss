@@ -1,13 +1,25 @@
 @media screen and (min-width: 1024px) {
-    
+    .header-principal {
+        justify-content: end;
+
+        .btn-hamburguer {
+            display: none;
+        }
+    }
+
     .main-principal {
         grid-template-columns: 300px 1fr;
 
         /* para desktop */
         .aside-principal {
+            display: flex;
             position: sticky;
             top: 0;
+            transform: translateX(0);
+            opacity: 1;
+            box-shadow: none;
         }
+
         .section-cards {
             .card-container {
                 grid-template-columns: repeat(3, 1fr);
@@ -15,5 +27,5 @@
         }
     }
 
-    
+
 }

@@ -65,11 +65,13 @@
     }
 
     .aside-principal {
-        display: none;
+        display: flex;
         flex-direction: column;
         background-color: variables.$color-white;
         position: fixed;
-
+        pointer-events: auto;
+        transition: .2s ease;
+        opacity: 0;
         height: 100vh;
         padding: 6.7rem 2rem;;
         gap: 2rem;
@@ -154,5 +156,16 @@
         }
     }
 
+    .aside-visible {
+        opacity: 1;
+        transform: translateX(0);
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .75);
+    }
+
+    .aside-oculto {
+        opacity: 0;
+        transform: translateX(-100%);
+
+    }
 
 }
