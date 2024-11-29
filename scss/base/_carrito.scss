@@ -1,0 +1,68 @@
+.main-carrito {
+    .section-total {
+        h3 {
+            text-transform: uppercase;
+        }
+
+        h4 {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .button-vaciar {
+            background-color: #FFE843;
+        }
+    }
+    .carrito-section {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(min(500px, 100%), 1fr));
+
+        .carrito-item {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 260px));
+            place-content: center;
+            padding: 0.5rem 1.2rem;
+
+            figure {
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .carrito-item-contenido {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                justify-content: center;
+
+                h3 {}
+
+                p {}
+
+                .contador-precio-contenedor {
+                    display: flex;
+                    text-align: center;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .contador-contenedor {
+                        padding: 1rem;
+                        display: flex;
+                        gap: 1rem;
+                    }
+
+                    p {}
+                }
+            }
+
+            .carrito-item-eliminar {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+        }
+    }
+    
+}
