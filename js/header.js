@@ -1,14 +1,10 @@
 const btnHamburguer = document.getElementById("btn-hamburguer");
 const aside = document.getElementById("aside-principal");
-console.log(btnHamburguer);
 
 btnHamburguer.addEventListener("click", () => {
-
-    if (aside.classList.contains("aside-visible")) {
-        aside.classList.remove("aside-visible");
-        aside.classList.add("aside-oculto");
-    } else {
-        aside.classList.add("aside-visible");
-        aside.classList.remove("aside-oculto");
-    }
-})
+    aside.classList.contains("aside-visible") // si aside tiene la clase de "aside-visible"
+        // removemos la clase "aside-visible" y agregamos "aside-oculto"
+        ? (aside.classList.remove("aside-visible"), aside.classList.add("aside-oculto"))
+        // si no agregamos la clase "aside-visible" y removemos "aside-oculto"
+        : (aside.classList.add("aside-visible"), aside.classList.remove("aside-oculto"));
+});
