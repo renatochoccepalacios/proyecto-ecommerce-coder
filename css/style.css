@@ -126,10 +126,18 @@ table {
   gap: 0.5rem;
   font-size: clamp(0.1rem, 5vw, 1rem);
 }
+.main-principal .section-cards .card-container .card-item figure {
+  overflow: hidden;
+}
 .main-principal .section-cards .card-container .card-item figure img {
   width: 100%;
   height: auto;
   object-fit: cover;
+  transition: 0.5s ease;
+}
+.main-principal .section-cards .card-container .card-item figure img:hover {
+  transform: scale(1.2);
+  background-color: black;
 }
 .main-principal .section-cards .card-container .card-item span {
   color: #9e3500;
