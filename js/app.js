@@ -26,13 +26,13 @@ class Producto {
 }
 
 const productos = [
-    new Producto('../img/jordan/jordan-1.jpg',  'Air Jordan 1 Low','Lo nuevo', 'Zapatillas Jordan para Hombre', 219.999, false, 10.999, ''),
-    new Producto('../img/jordan/jordan-2.jpg', 'Air Jordan 1 Low','', 'Zapatillas Jordan para Hombre', 219.999, false, 10.999, '10% de descuento'),
-    new Producto('../img/jordan/jordan-3.jpg', 'Air Jordan 1 Mid','Lo nuevo', 'Zapatillas Jordan para Hombre', 239.999, false, 0, ''),
-    new Producto('../img/jordan/jordan-4.jpg', 'Air Jordan 1 High OG "Mauve"','Lo nuevo', 'Zapatillas Jordan para Hombre', 219.999, true, 0, ''),
-    new Producto('../img/jordan/jordan-5.jpg', 'Air Jordan 1 Retro High OG','', 'Zapatillas Jordan para Mujer', 219.999, true, 0, ''),
-    new Producto('../img/jordan/jordan-6.jpg', 'Air Jordan 1 Mid','Lo nuevo', 'Zapatillas Jordan para Mujer', 219.999, false, 15.999, ''),
-    new Producto('../img/jordan/jordan-7.jpg', 'Air Jordan 1 Retro High OG','Lo nuevo', 'Zapatillas de Moda, Jordan para Mujer', 344.999, true, 0, '')
+    new Producto('img/jordan/jordan-1.jpg',  'Air Jordan 1 Low','Lo nuevo', 'Zapatillas Jordan para Hombre', 219.999, false, 10.999, ''),
+    new Producto('img/jordan/jordan-2.jpg', 'Air Jordan 1 Low','', 'Zapatillas Jordan para Hombre', 219.999, false, 10.999, '10% de descuento'),
+    new Producto('img/jordan/jordan-3.jpg', 'Air Jordan 1 Mid','Lo nuevo', 'Zapatillas Jordan para Hombre', 239.999, false, 0, ''),
+    new Producto('img/jordan/jordan-4.jpg', 'Air Jordan 1 High OG "Mauve"','Lo nuevo', 'Zapatillas Jordan para Hombre', 219.999, true, 0, ''),
+    new Producto('img/jordan/jordan-5.jpg', 'Air Jordan 1 Retro High OG','', 'Zapatillas Jordan para Mujer', 219.999, true, 0, ''),
+    new Producto('img/jordan/jordan-6.jpg', 'Air Jordan 1 Mid','Lo nuevo', 'Zapatillas Jordan para Mujer', 219.999, false, 15.999, ''),
+    new Producto('img/jordan/jordan-7.jpg', 'Air Jordan 1 Retro High OG','Lo nuevo', 'Zapatillas de Moda, Jordan para Mujer', 344.999, true, 0, '')
 
 
 ]
