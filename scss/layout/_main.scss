@@ -10,8 +10,15 @@
     min-height: 100vh;
 
     .section-cards {
+        display: grid;
+        place-items: center;
         padding: 6rem 0;
-
+        .alerta-no-disponible {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
         .card-container {
             display: grid;
             padding: 0 2rem;
@@ -19,6 +26,8 @@
             grid-template-columns: repeat(1, 1fr);
             gap: 2rem;
             justify-content: center;
+
+            
 
             .card-item {
                 display: grid;
@@ -96,9 +105,9 @@
         /* Color del scrollbar */
 
         // Estilo para navegadores basados en Webkit (Chrome, Edge, etc.)
-        
-    
-        
+
+
+
         &::-webkit-scrollbar-track {
             background-color: variables.$color-white; // Fondo del track
         }

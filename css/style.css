@@ -113,7 +113,15 @@ table {
   min-height: 100vh;
 }
 .main-principal .section-cards {
+  display: grid;
+  place-items: center;
   padding: 6rem 0;
+}
+.main-principal .section-cards .alerta-no-disponible {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .main-principal .section-cards .card-container {
   display: grid;

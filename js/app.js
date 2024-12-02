@@ -39,7 +39,7 @@ const productos = [
 
 console.log(productos)
 const cardContainer = document.getElementById('card-container');
-
+const sectionCards = document.getElementById('section-cards');
 const renderizarProductos = (productos) => {
     cardContainer.innerHTML = ''; // limpiamos el contenedor
     productos.forEach(producto => {
@@ -67,26 +67,32 @@ const filtrarProductosPorId = () => {
         .filter(input => input.checked) // solo los tildados
         .map(input => input.id.replace('filtro-', '')) // obtenemos el id
     console.log(filtrosActivos);
+    cardContainer.innerHTML = ''; // limpiamos el contenedor
 
     let productosFiltrados = productos;
 
     if (filtrosActivos.length > 0) {
         // Usamos .filter para obtener los productos que coinciden con los filtros activos
         productosFiltrados = productos.filter(producto => {
+            // Si el id del filtro coincide con el genero o la coleccion del producto
 
-            if (filtrosActivos > 0) {
-                            // Si el id del filtro coincide con el genero o la coleccion del producto
-                return filtrosActivos.some(filtro => producto.genero === filtro || producto.coleccion === filtro);            
-            } else {
-                const alertNoDisponible = document.createElement("div");
-                alertNoDisponible.textContent = 'Producto no disponible';
-                console.log(alertNoDisponible);
-            }
-            // if(filtrosActivos < 0)
+            return filtrosActivos.some(filtro => producto.genero === filtro || producto.coleccion === filtro);
         });
     }
 
-    renderizarProductos(productosFiltrados);
+    // si no hay productos filtrados mostramos un mensaje
+    if (productosFiltrados.length === 0) {
+        // creamos el mensaje
+        const alertNoDisponible = document.createElement("div");
+        alertNoDisponible.classList.add("alerta-no-disponible")
+        alertNoDisponible.textContent = 'No hay productos disponibles';
+        sectionCards.appendChild(alertNoDisponible);
+    } else {
+        renderizarProductos(productosFiltrados);
+
+    }
+    // if(filtrosActivos < 0)
+
 }
 
 filtrarProducto.forEach(filtro => {
