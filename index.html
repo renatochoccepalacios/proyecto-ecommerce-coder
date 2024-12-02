@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  
+
   <header class="header-principal">
     <button class="btn-hamburguer" id="btn-hamburguer">
       <i class="bi bi-list"></i>
@@ -25,37 +25,58 @@
       </span>
     </a>
 
-    
+
   </header>
   <main class="main-principal">
     <aside class="aside-principal" id="aside-principal">
-        <figure class="aside-logo">
-          <img src="img/logo-nike.png" alt="Logo de Nike">
-        </figure>
-        <div class="contenedor-clasificar">
-          <p>Clasificar</p>
-          <a href="">Novedades de Nike</a>
-        </div>
-        <div class="filtrar-container">
-          <p>Filtros <a href="">Limpiar Filtros</a></p>
-          <!-- <ul class="lista-filtrar">
+      <figure class="aside-logo">
+        <img src="img/logo-nike.png" alt="Logo de Nike">
+      </figure>
+      <div class="contenedor-clasificar">
+        <p>Clasificar</p>
+        <a href="">Novedades de Nike</a>
+      </div>
+      <div class="filtrar-container">
+        <p>Filtros <a href="">Limpiar Filtros</a></p>
+        <!-- <ul class="lista-filtrar">
             <li class="filtrar-item"><a href="">Tipo</a></li>
             <li class="filtrar-item"><a href="">Estilo</a></li>
             <li class="filtrar-item"><a href="">Tamaño</a></li>
             <li class="filtrar-item"><a href="">Marca</a></li>
             <li class="filtrar-item"><a href="">Gama de precios</a></li>
           </ul> -->
-          <details class="lista-filtrar">
-            <summary class="filtrar-item">Colecciones <i class="bi bi-chevron-down"></i></summary>
-            <div class="contenido-filtrar">
-              <ul>
-                <li><a href="">Basquet</a></li>
-                <li><a href="">Jordan</a></li>
-              </ul>
-            </div>
-          </details>
-          
-          <!-- <div class="lista-filtrar btn-group-vertical" role="group" aria-label="Vertical button group">
+        <details class="lista-filtrar">
+          <summary class="filtrar-item">Colecciones <i class="bi bi-chevron-down"></i></summary>
+          <div class="contenido-filtrar">
+            <ul>
+              <li>
+                <input type="checkbox" name="" value="basquet" id="filtro-basquet">Basquet
+              </li>
+              <li>
+                <input type="checkbox" name="" value="jordan" id="filtro-jordan">Jordan
+              </li>
+              
+              <li>
+                <input type="checkbox" name="" value="moda" id="filtro-moda">Moda
+              </li>
+            </ul>
+          </div>
+        </details>
+        <details class="lista-filtrar">
+          <summary class="filtrar-item">Género <i class="bi bi-chevron-down"></i></summary>
+          <div class="contenido-filtrar">
+            <ul>
+              <li>
+                <input type="checkbox" name="" value="hombre" id="filtro-hombre">Hombre
+              </li>
+              <li>
+                <input type="checkbox" name="" value="mujer" id="filtro-mujer">Mujer
+              </li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- <div class="lista-filtrar btn-group-vertical" role="group" aria-label="Vertical button group">
             
             <div class="filtrar-item btn-group dropend" role="group">
               <button type="button" class="btn  dropdown-toggle w-100" data-bs-toggle="dropdown" aria-expanded="false">
@@ -107,8 +128,8 @@
               </ul>
             </div>
           </div> -->
-        </div>
-  
+      </div>
+
     </aside>
     <section class="section-cards">
       <div class="card-container" id="card-container">

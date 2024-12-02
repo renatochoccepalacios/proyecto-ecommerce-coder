@@ -87,6 +87,8 @@
         gap: 2rem;
 
         .aside-logo {
+            display: flex;
+            justify-content: center;
             img {
                 max-width: 200px;
                 width: 100%;

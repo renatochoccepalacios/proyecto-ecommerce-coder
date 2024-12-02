@@ -94,6 +94,7 @@ table {
   align-items: center;
   z-index: 5;
   justify-content: space-between;
+  box-shadow: 21px -8px 79px 25px rgba(163, 177, 198, 0.5), -2px 19px 59px rgba(124, 124, 124, 0.6);
 }
 .header-principal .btn-hamburguer {
   font-size: 2rem;
@@ -170,6 +171,10 @@ table {
   padding: 6.7rem 2rem;
   z-index: 4;
   gap: 2rem;
+}
+.main-principal .aside-principal .aside-logo {
+  display: flex;
+  justify-content: center;
 }
 .main-principal .aside-principal .aside-logo img {
   max-width: 200px;
@@ -327,8 +332,8 @@ table {
     position: sticky;
     top: 0;
     transform: translateX(0);
+    box-shadow: 21px -8px 79px 25px rgba(163, 177, 198, 0.5), -2px 19px 59px rgba(124, 124, 124, 0.6);
     opacity: 1;
-    box-shadow: none;
   }
   .main-principal .section-cards .card-container {
     grid-template-columns: repeat(3, 1fr);
