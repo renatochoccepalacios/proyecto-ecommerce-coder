@@ -1,9 +1,10 @@
 class Producto {
-    constructor(imagen = '', nombre = '', nuevo = '' , descripcion = '', precio = 0, envioGratis, precioEnvio = 0, descuento = '') {
+    constructor(imagen = '', nombre = '', nuevo = '', descripcion = '', genero = '', precio = 0, envioGratis, precioEnvio = 0, descuento = '') {
         this.imagen = imagen;
         this.nombre = nombre;
         this.nuevo = nuevo;
         this.descripcion = descripcion;
+        this.genero = genero;
         this.precio = parseFloat(precio);
         this.envioGratis = Boolean(envioGratis);
         this.precioEnvio = parseFloat(precioEnvio);
@@ -26,15 +27,13 @@ class Producto {
 }
 
 const productos = [
-    new Producto('img/jordan/jordan-1.jpg',  'Air Jordan 1 Low','Lo nuevo', 'Zapatillas Jordan para Hombre', 219.999, false, 10.999, ''),
-    new Producto('img/jordan/jordan-2.jpg', 'Air Jordan 1 Low','', 'Zapatillas Jordan para Hombre', 219.999, false, 10.999, '10% de descuento'),
-    new Producto('img/jordan/jordan-3.jpg', 'Air Jordan 1 Mid','Lo nuevo', 'Zapatillas Jordan para Hombre', 239.999, false, 0, ''),
-    new Producto('img/jordan/jordan-4.jpg', 'Air Jordan 1 High OG "Mauve"','Lo nuevo', 'Zapatillas Jordan para Hombre', 219.999, true, 0, ''),
-    new Producto('img/jordan/jordan-5.jpg', 'Air Jordan 1 Retro High OG','', 'Zapatillas Jordan para Mujer', 219.999, true, 0, ''),
-    new Producto('img/jordan/jordan-6.jpg', 'Air Jordan 1 Mid','Lo nuevo', 'Zapatillas Jordan para Mujer', 219.999, false, 15.999, ''),
-    new Producto('img/jordan/jordan-7.jpg', 'Air Jordan 1 Retro High OG','Lo nuevo', 'Zapatillas de Moda, Jordan para Mujer', 344.999, true, 0, '')
-
-
+    new Producto('img/jordan/jordan-1.jpg', 'Air Jordan 1 Low', 'Lo nuevo', 'Zapatillas Jordan para Hombre', 'hombre', 219.999, false, 10.999, ''),
+    new Producto('img/jordan/jordan-2.jpg', 'Air Jordan 1 Low', '', 'Zapatillas Jordan para Hombre', 'hombre', 219.999, false, 10.999, '10% de descuento'),
+    new Producto('img/jordan/jordan-3.jpg', 'Air Jordan 1 Mid', 'Lo nuevo', 'Zapatillas Jordan para Hombre', 'hombre', 239.999, false, 0, ''),
+    new Producto('img/jordan/jordan-4.jpg', 'Air Jordan 1 High OG "Mauve"', 'Lo nuevo', 'Zapatillas Jordan para Hombre', 'hombre', 219.999, true, 0, ''),
+    new Producto('img/jordan/jordan-5.jpg', 'Air Jordan 1 Retro High OG', '', 'Zapatillas Jordan para Mujer', 'mujer', 219.999, true, 0, ''),
+    new Producto('img/jordan/jordan-6.jpg', 'Air Jordan 1 Mid', 'Lo nuevo', 'Zapatillas Jordan para Mujer', 'mujer', 219.999, false, 15.999, ''),
+    new Producto('img/jordan/jordan-7.jpg', 'Air Jordan 1 Retro High OG', 'Lo nuevo', 'Zapatillas de Moda, Jordan para Mujer', 'mujer', 344.999, true, 0, '')
 ]
 
 
@@ -53,6 +52,32 @@ productos.forEach(producto => {
     `;
 
     cardContainer.appendChild(mostrarProductos);
-    console.log(mostrarProductos)
+    console.log(mostrarProductos);
+});
 
+const filtrarGeneros = document.querySelectorAll(".filtrar-input");
+
+filtrarGeneros.forEach(filtrarGenero => {
+    filtrarGenero.addEventListener('click', () => {
+        if(filtrarGenero.id === "filtro-hombre") {
+            const filtrarHombre = productos.filter(producto => producto.genero === 'hombre');
+            filtrarHombre.forEach( filtroHombre => {
+                console.log(`filtro hombres ${filtroHombre.imagen}`);
+            });
+        } else {
+            console.log("filtramos por otro...")
+        }
+    });
+});
+/* filtrarGenero.forEach((genero) => {
+    if (genero.id === "filtro-ambos") {
+        productos.find((producto) => producto.genero === 'hombre');
+        console.log(productos)
+    }
 })
+console.log(filtrarGenero)
+ */
+/* const filtrarPorGenero = (genero) => {
+
+    console.log('click')
+} */
