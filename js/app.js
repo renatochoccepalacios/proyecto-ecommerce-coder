@@ -37,38 +37,67 @@ const productos = [
 ]
 
 
-productos.forEach(producto => {
-    const cardContainer = document.getElementById('card-container');
-    const mostrarProductos = document.createElement('div');
-    mostrarProductos.classList.add("card-item");
+const cardContainer = document.getElementById('card-container');
 
-    mostrarProductos.innerHTML = `
-    <figure><img src="${producto.imagen}" alt=""></figure>
-    <span>${producto.envioGratis === true ? 'Envio gratis' : producto.nuevo}</span>
-    <h3 class="card-titulo">${producto.nombre}</h3>
-    <p class="card-descrip">${producto.descripcion}</p>
-    <p class="card-precio">${producto.precio}</p>
-    <button class="button-agregar">Agregar al carrito</button>
-    `;
+const renderizarProductos = (productos) => {
+    cardContainer.innerHTML = ''; // limpiamos el contenedor
+    productos.forEach(producto => {
+        const productoCard = document.createElement('div');
+        productoCard.classList.add("card-item");
+        productoCard.innerHTML = `
+        <figure><img src="${producto.imagen}" alt=""></figure>
+        <span>${producto.envioGratis === true ? 'Envio gratis' : producto.nuevo}</span>
+        <h3 class="card-titulo">${producto.nombre}</h3>
+        <p class="card-descrip">${producto.descripcion}</p>
+        <p class="card-precio">${producto.precio}</p>
+        <button class="button-agregar">Agregar al carrito</button>
+        `;
 
-    cardContainer.appendChild(mostrarProductos);
-    console.log(mostrarProductos);
-});
+        cardContainer.appendChild(productoCard);
+        console.log(productoCard);
+    });
+}
+
+
+
 
 const filtrarGeneros = document.querySelectorAll(".filtrar-input");
 
 filtrarGeneros.forEach(filtrarGenero => {
-    filtrarGenero.addEventListener('click', () => {
-        if(filtrarGenero.id === "filtro-hombre") {
-            const filtrarHombre = productos.filter(producto => producto.genero === 'hombre');
-            filtrarHombre.forEach( filtroHombre => {
-                console.log(`filtro hombres ${filtroHombre.imagen}`);
-            });
+    filtrarGenero.addEventListener('change', () => {
+        let productosFiltrados;
+
+        const filtrosActivos = Array.from(filtrarGeneros)
+                .filter(input => input.checked) // solo los tildados
+                .map(input => input.id) // obtenemos el id
+                console.log(filtrosActivos);
+
+        if (filtrosActivos.length > 0 ){
+            productosFiltrados = productos.filter( producto => filtrosActivos.includes(`filtro-${producto.genero}`));
         } else {
-            console.log("filtramos por otro...")
+            productosFiltrados = productos;
         }
+
+        renderizarProductos(productosFiltrados)
     });
 });
+
+renderizarProductos(productos);
+
+
+/* 
+filtrarHombre.forEach( filtroHombre => {
+    mostrarProductos.innerHTML = `<figure><img src="${filtroHombre.imagen}" alt=""></figure>
+<span>${filtroHombre.envioGratis === true ? 'Envio gratis' : filtroHombre.nuevo}</span>
+<h3 class="card-titulo">${filtroHombre.nombre}</h3>
+<p class="card-descrip">${filtroHombre.descripcion}</p>
+<p class="card-precio">${filtroHombre.precio}</p>
+<button class="button-agregar">Agregar al carrito</button>`
+    cardContainer.appendChild(mostrarProductos);
+    console.log(mostrarProductos); */
+
+
+
 /* filtrarGenero.forEach((genero) => {
     if (genero.id === "filtro-ambos") {
         productos.find((producto) => producto.genero === 'hombre');

@@ -170,6 +170,7 @@ table {
   padding: 6.7rem 2rem;
   z-index: 4;
   gap: 2rem;
+  height: 100%;
   max-height: 100vh;
   /* Limita la altura al 100% del viewport */
   overflow-y: auto;
