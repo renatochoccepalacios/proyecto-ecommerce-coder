@@ -1,9 +1,10 @@
 class Producto {
-    constructor(imagen = '', nombre = '', nuevo = '', descripcion = '', genero = '', precio = 0, envioGratis, precioEnvio = 0, descuento = '') {
+    constructor(imagen = '', nombre = '', nuevo = '', descripcion = '', coleccion = '', genero = '', precio = 0, envioGratis, precioEnvio = 0, descuento = '') {
         this.imagen = imagen;
         this.nombre = nombre;
         this.nuevo = nuevo;
         this.descripcion = descripcion;
+        this.coleccion = coleccion;
         this.genero = genero;
         this.precio = parseFloat(precio);
         this.envioGratis = Boolean(envioGratis);
@@ -27,16 +28,16 @@ class Producto {
 }
 
 const productos = [
-    new Producto('img/jordan/jordan-1.jpg', 'Air Jordan 1 Low', 'Lo nuevo', 'Zapatillas Jordan para Hombre', 'hombre', 219.999, false, 10.999, ''),
-    new Producto('img/jordan/jordan-2.jpg', 'Air Jordan 1 Low', '', 'Zapatillas Jordan para Hombre', 'hombre', 219.999, false, 10.999, '10% de descuento'),
-    new Producto('img/jordan/jordan-3.jpg', 'Air Jordan 1 Mid', 'Lo nuevo', 'Zapatillas Jordan para Hombre', 'hombre', 239.999, false, 0, ''),
-    new Producto('img/jordan/jordan-4.jpg', 'Air Jordan 1 High OG "Mauve"', 'Lo nuevo', 'Zapatillas Jordan para Hombre', 'hombre', 219.999, true, 0, ''),
-    new Producto('img/jordan/jordan-5.jpg', 'Air Jordan 1 Retro High OG', '', 'Zapatillas Jordan para Mujer', 'mujer', 219.999, true, 0, ''),
-    new Producto('img/jordan/jordan-6.jpg', 'Air Jordan 1 Mid', 'Lo nuevo', 'Zapatillas Jordan para Mujer', 'mujer', 219.999, false, 15.999, ''),
-    new Producto('img/jordan/jordan-7.jpg', 'Air Jordan 1 Retro High OG', 'Lo nuevo', 'Zapatillas de Moda, Jordan para Mujer', 'mujer', 344.999, true, 0, '')
+    new Producto('img/jordan/jordan-1.jpg', 'Air Jordan 1 Low', 'Lo nuevo', 'Zapatillas Jordan para Hombre', 'jordan', 'hombre', 219.999, false, 10.999, ''),
+    new Producto('img/jordan/jordan-2.jpg', 'Air Jordan 1 Low', '', 'Zapatillas Jordan para Hombre', 'jordan', 'hombre', 219.999, false, 10.999, '10% de descuento'),
+    new Producto('img/jordan/jordan-3.jpg', 'Air Jordan 1 Mid', 'Lo nuevo', 'Zapatillas Jordan para Hombre', 'jordan', 'hombre', 239.999, false, 0, ''),
+    new Producto('img/jordan/jordan-4.jpg', 'Air Jordan 1 High OG "Mauve"', 'Lo nuevo', 'Zapatillas Jordan para Hombre', 'jordan', 'hombre', 219.999, true, 0, ''),
+    new Producto('img/jordan/jordan-5.jpg', 'Air Jordan 1 Retro High OG', '', 'Zapatillas Jordan para Mujer', 'jordan', 'mujer', 219.999, true, 0, ''),
+    new Producto('img/jordan/jordan-6.jpg', 'Air Jordan 1 Mid', 'Lo nuevo', 'Zapatillas Jordan para Mujer', 'jordan', 'mujer', 219.999, false, 15.999, ''),
+    new Producto('img/jordan/jordan-7.jpg', 'Air Jordan 1 Retro High OG', 'Lo nuevo', 'Zapatillas de Moda, Jordan para Mujer', 'jordan', 'mujer', 344.999, true, 0, '')
 ]
 
-
+console.log(productos)
 const cardContainer = document.getElementById('card-container');
 
 const renderizarProductos = (productos) => {
@@ -58,55 +59,38 @@ const renderizarProductos = (productos) => {
     });
 }
 
+const filtrarProducto = document.querySelectorAll(".filtrar-input");
 
+const filtrarProductosPorId = () => {
+    // obtenemos los filtros activos
+    const filtrosActivos = Array.from(filtrarProducto) // le pasamos los inputs
+        .filter(input => input.checked) // solo los tildados
+        .map(input => input.id.replace('filtro-', '')) // obtenemos el id
+    console.log(filtrosActivos);
 
+    let productosFiltrados = productos;
 
-const filtrarGeneros = document.querySelectorAll(".filtrar-input");
+    if (filtrosActivos.length > 0) {
+        // Usamos .filter para obtener los productos que coinciden con los filtros activos
+        productosFiltrados = productos.filter(producto => {
 
-filtrarGeneros.forEach(filtrarGenero => {
-    filtrarGenero.addEventListener('change', () => {
-        let productosFiltrados;
+            if (filtrosActivos > 0) {
+                            // Si el id del filtro coincide con el genero o la coleccion del producto
+                return filtrosActivos.some(filtro => producto.genero === filtro || producto.coleccion === filtro);            
+            } else {
+                const alertNoDisponible = document.createElement("div");
+                alertNoDisponible.textContent = 'Producto no disponible';
+                console.log(alertNoDisponible);
+            }
+            // if(filtrosActivos < 0)
+        });
+    }
 
-        const filtrosActivos = Array.from(filtrarGeneros)
-                .filter(input => input.checked) // solo los tildados
-                .map(input => input.id) // obtenemos el id
-                console.log(filtrosActivos);
+    renderizarProductos(productosFiltrados);
+}
 
-        if (filtrosActivos.length > 0 ){
-            productosFiltrados = productos.filter( producto => filtrosActivos.includes(`filtro-${producto.genero}`));
-        } else {
-            productosFiltrados = productos;
-        }
-
-        renderizarProductos(productosFiltrados)
-    });
-});
+filtrarProducto.forEach(filtro => {
+    filtro.addEventListener("change", filtrarProductosPorId);
+})
 
 renderizarProductos(productos);
-
-
-/* 
-filtrarHombre.forEach( filtroHombre => {
-    mostrarProductos.innerHTML = `<figure><img src="${filtroHombre.imagen}" alt=""></figure>
-<span>${filtroHombre.envioGratis === true ? 'Envio gratis' : filtroHombre.nuevo}</span>
-<h3 class="card-titulo">${filtroHombre.nombre}</h3>
-<p class="card-descrip">${filtroHombre.descripcion}</p>
-<p class="card-precio">${filtroHombre.precio}</p>
-<button class="button-agregar">Agregar al carrito</button>`
-    cardContainer.appendChild(mostrarProductos);
-    console.log(mostrarProductos); */
-
-
-
-/* filtrarGenero.forEach((genero) => {
-    if (genero.id === "filtro-ambos") {
-        productos.find((producto) => producto.genero === 'hombre');
-        console.log(productos)
-    }
-})
-console.log(filtrarGenero)
- */
-/* const filtrarPorGenero = (genero) => {
-
-    console.log('click')
-} */
