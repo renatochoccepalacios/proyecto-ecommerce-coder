@@ -12,7 +12,8 @@
     .section-cards {
         display: grid;
         place-items: center;
-        padding: 2rem 0;
+        padding: 1rem 2rem;
+
 
         .alerta-no-disponible {
             position: absolute;
@@ -21,9 +22,24 @@
             align-items: center;
         }
 
+        .ordenar-section {
+            width: 100%;
+            display: flex;
+            justify-content: end;
+            position: relative;
+
+            .ordenar-details {
+                sumary {
+
+                }
+                .ordenar-div {
+                    position: absolute;
+                }
+            }
+        }
+
         .card-container {
             display: grid;
-            padding: 0 2rem;
             // grid-template-columns: repeat(auto-fit, minmax(min(390px, 100%), 400px));
             grid-template-columns: repeat(1, 1fr);
             gap: 2rem;
@@ -58,6 +74,8 @@
                 }
 
                 span {
+                    display: grid;
+                    align-items: center;
                     color: variables.$color-marron;
                 }
 
@@ -181,8 +199,9 @@
                     overflow: hidden;
                     transition: height 2s ease; // Controla la animación de deslizamiento
 
-                    ul {
+                    .ul-filtrar {
                         @include mixin.flex-direccion-column;
+                        padding-left: 40px;
                         gap: 0.85rem;
 
                         li {
