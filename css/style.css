@@ -86,7 +86,8 @@ table {
 
 .header-principal {
   width: 100%;
-  position: fixed;
+  position: sticky;
+  top: 0;
   background-color: #fff;
   height: 80px;
   padding: 0 2rem;
@@ -115,7 +116,7 @@ table {
 .main-principal .section-cards {
   display: grid;
   place-items: center;
-  padding: 6rem 0;
+  padding: 2rem 0;
 }
 .main-principal .section-cards .alerta-no-disponible {
   position: absolute;
@@ -347,9 +348,14 @@ table {
 .main-principal {
     grid-area: main;
 } */
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 414px) {
   .main-principal .section-cards .card-container {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 600px) {
+  .main-principal .section-cards .card-container {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 @media screen and (min-width: 1024px) {
@@ -362,6 +368,11 @@ table {
   .main-principal {
     grid-template-columns: 300px 1fr;
     /* para desktop */
+    /* .section-cards {
+        .card-container {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    } */
   }
   .main-principal .aside-principal {
     display: flex;
@@ -370,9 +381,6 @@ table {
     transform: translateX(0);
     box-shadow: 21px -8px 79px 25px rgba(163, 177, 198, 0.5), -2px 19px 59px rgba(124, 124, 124, 0.6);
     opacity: 1;
-  }
-  .main-principal .section-cards .card-container {
-    grid-template-columns: repeat(3, 1fr);
   }
 }
 

@@ -7,7 +7,8 @@
 
 .header-principal {
     width: 100%;
-    position: fixed;
+    position: sticky;
+    top: 0;
     background-color: variables.$color-white;
     height: 80px;
     padding: 0 2rem;

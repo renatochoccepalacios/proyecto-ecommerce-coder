@@ -12,13 +12,15 @@
     .section-cards {
         display: grid;
         place-items: center;
-        padding: 6rem 0;
+        padding: 2rem 0;
+
         .alerta-no-disponible {
             position: absolute;
             display: flex;
             justify-content: center;
             align-items: center;
         }
+
         .card-container {
             display: grid;
             padding: 0 2rem;
@@ -27,7 +29,7 @@
             gap: 2rem;
             justify-content: center;
 
-            
+
 
             .card-item {
                 display: grid;
