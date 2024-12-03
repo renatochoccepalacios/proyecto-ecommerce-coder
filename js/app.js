@@ -67,8 +67,9 @@ const filtrarProductosPorId = () => {
         .filter(input => input.checked) // solo los tildados
         .map(input => input.id.replace('filtro-', '')) // obtenemos el id
     console.log(filtrosActivos);
-    cardContainer.innerHTML = ''; // limpiamos el contenedor
 
+    cardContainer.innerHTML = ''; // limpiamos el contenedor
+    
     let productosFiltrados = productos;
 
     if (filtrosActivos.length > 0) {
@@ -79,6 +80,8 @@ const filtrarProductosPorId = () => {
             return filtrosActivos.some(filtro => producto.genero === filtro || producto.coleccion === filtro);
         });
     }
+
+    console.log(productosFiltrados)
 
     // si no hay productos filtrados mostramos un mensaje
     if (productosFiltrados.length === 0) {
