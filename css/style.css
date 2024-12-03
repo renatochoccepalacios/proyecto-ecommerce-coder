@@ -88,8 +88,7 @@ table {
 
 .header-principal {
   width: 100%;
-  position: sticky;
-  top: 0;
+  position: fixed;
   background-color: #fff;
   height: 80px;
   padding: 0 2rem;
@@ -118,7 +117,7 @@ table {
 .main-principal .section-cards {
   display: grid;
   place-items: center;
-  padding: 1rem 2rem;
+  padding: 7rem 2rem;
 }
 .main-principal .section-cards .alerta-no-disponible {
   position: absolute;
