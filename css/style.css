@@ -27,6 +27,10 @@ ol {
   list-style: none;
 }
 
+summary {
+  all: unset;
+}
+
 /* Ajusta tipografía general */
 html {
   font-size: 100%; /* 16px por defecto */
