@@ -42,15 +42,15 @@ const cardContainer = document.getElementById('card-container');
 const sectionCards = document.getElementById('section-cards');
 const renderizarProductos = (productos) => {
     cardContainer.innerHTML = ''; // limpiamos el contenedor
-    productos.forEach(producto => {
+    productos.forEach(({imagen, envioGratis, nuevo, nombre, descripcion, precio}) => {
         const productoCard = document.createElement('div');
         productoCard.classList.add("card-item");
         productoCard.innerHTML = `
-        <figure><img src="${producto.imagen}" alt=""></figure>
-        <span>${producto.envioGratis === true ? 'Envio gratis' : producto.nuevo}</span>
-        <h3 class="card-titulo">${producto.nombre}</h3>
-        <p class="card-descrip">${producto.descripcion}</p>
-        <p class="card-precio">${producto.precio}</p>
+        <figure><img src="${imagen}" alt=""></figure>
+        <span>${envioGratis ? 'Envio gratis' : nuevo}</span>
+        <h3 class="card-titulo">${nombre}</h3>
+        <p class="card-descrip">${descripcion}</p>
+        <p class="card-precio">${precio}</p>
         <button class="button-agregar">Agregar al carrito</button>
         `;
 
