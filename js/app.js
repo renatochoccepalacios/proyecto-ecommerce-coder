@@ -81,10 +81,10 @@ const filtrarProductosPorId = () => {
     }
 
     console.log(productosFiltrados)
-
+    
+    limpiarCardContainer(); // Limpia antes de mostrar el mensaje
     // si no hay productos filtrados mostramos un mensaje
     if (productosFiltrados.length === 0) {
-        limpiarCardContainer(); // Limpia antes de mostrar el mensaje
         const alertNoDisponible = document.createElement("div");
         alertNoDisponible.classList.add("alerta-no-disponible");
         alertNoDisponible.textContent = 'No hay productos disponibles';
@@ -103,8 +103,11 @@ filtrarProducto.forEach(filtro => {
 })
 
 function limpiarCardContainer() {
+    // Mientras el contenedor `cardContainer` tenga al menos un hijo...
     while (cardContainer.firstChild) {
-        cardContainer.removeChild(cardContainer.firstChild); // Limpia todo dentro de cardContainer
+        // Elimina el primer hijo del contenedor.
+        // Esto se repetirá hasta que no quede ningún hijo dentro de `cardContainer`.
+        cardContainer.removeChild(cardContainer.firstChild); 
     }
 }
 
