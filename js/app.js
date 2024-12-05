@@ -69,14 +69,13 @@ const filtrarProductosPorId = () => {
     console.log(filtrosActivos);
 
     cardContainer.innerHTML = ''; // limpiamos el contenedor
-    
+
     let productosFiltrados = productos;
 
     if (filtrosActivos.length > 0) {
         // Usamos .filter para obtener los productos que coinciden con los filtros activos
         productosFiltrados = productos.filter(producto => {
             // Si el id del filtro coincide con el genero o la coleccion del producto
-
             return filtrosActivos.some(filtro => producto.genero === filtro || producto.coleccion === filtro);
         });
     }
@@ -85,10 +84,11 @@ const filtrarProductosPorId = () => {
 
     // si no hay productos filtrados mostramos un mensaje
     if (productosFiltrados.length === 0) {
-        // creamos el mensaje
+        limpiarCardContainer(); // Limpia antes de mostrar el mensaje
         const alertNoDisponible = document.createElement("div");
-        alertNoDisponible.classList.add("alerta-no-disponible")
+        alertNoDisponible.classList.add("alerta-no-disponible");
         alertNoDisponible.textContent = 'No hay productos disponibles';
+        cardContainer.appendChild(alertNoDisponible);
         sectionCards.appendChild(alertNoDisponible);
     } else {
         renderizarProductos(productosFiltrados);
@@ -101,5 +101,11 @@ const filtrarProductosPorId = () => {
 filtrarProducto.forEach(filtro => {
     filtro.addEventListener("change", filtrarProductosPorId);
 })
+
+function limpiarCardContainer() {
+    while (cardContainer.firstChild) {
+        cardContainer.removeChild(cardContainer.firstChild); // Limpia todo dentro de cardContainer
+    }
+}
 
 renderizarProductos(productos);
