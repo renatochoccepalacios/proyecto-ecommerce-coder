@@ -37,11 +37,12 @@ const productos = [
     new Producto('img/jordan/jordan-7.jpg', 'Air Jordan 1 Retro High OG', 'Lo nuevo', 'Zapatillas de Moda, Jordan para Mujer', 'jordan', 'mujer', 344.999, true, 0, '')
 ]
 
-console.log(productos)
 const cardContainer = document.getElementById('card-container');
 const sectionCards = document.getElementById('section-cards');
+
 const renderizarProductos = (productos) => {
     cardContainer.innerHTML = ''; // limpiamos el contenedor
+
     productos.forEach(({imagen, envioGratis, nuevo, nombre, descripcion, precio}) => {
         const productoCard = document.createElement('div');
         productoCard.classList.add("card-item");
@@ -55,7 +56,6 @@ const renderizarProductos = (productos) => {
         `;
 
         cardContainer.appendChild(productoCard);
-        console.log(productoCard);
     });
 }
 
