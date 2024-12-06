@@ -329,16 +329,18 @@ table {
 }
 .main-carrito .carrito-section .carrito-item {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+  grid-template-columns: 400px 1fr;
   place-content: center;
   padding: 0.5rem 1.2rem;
 }
+.main-carrito .carrito-section .carrito-item figure {
+  width: 100%;
+  max-height: 300px;
+}
 .main-carrito .carrito-section .carrito-item figure img {
   width: 100%;
-  height: auto;
-  max-width: 100%;
-  max-height: 300px;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
 }
 .main-carrito .carrito-section .carrito-item .carrito-item-contenido {
   display: flex;
