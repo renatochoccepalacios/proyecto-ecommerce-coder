@@ -1,5 +1,14 @@
+@use '../utilidades/mixin';
+
 .main-carrito {
+    display: grid;
+    grid-template-columns: 1fr 500px;
+
     .section-total {
+        @include mixin.flex-direccion-column;
+        justify-content: center;
+        gap: 1rem;
+
         h3 {
             text-transform: uppercase;
         }
@@ -7,19 +16,27 @@
         h4 {
             display: flex;
             justify-content: space-between;
+            padding: 2rem 0;
+            border-top: 1px solid;
+            border-bottom: 1px solid;
         }
 
         .button-vaciar {
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-top: 20px;
+            padding: 0.65rem;
             background-color: #FFE843;
         }
     }
+
     .carrito-section {
         display: grid;
         grid-template-columns: repeat(1, minmax(min(500px, 100%), 1fr));
 
         .carrito-item {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 260px));
+            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
             place-content: center;
             padding: 0.5rem 1.2rem;
 
@@ -64,5 +81,5 @@
             }
         }
     }
-    
+
 }

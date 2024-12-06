@@ -292,14 +292,31 @@ table {
   transform: translateX(-100%);
 }
 
+.main-carrito {
+  display: grid;
+  grid-template-columns: 1fr 500px;
+}
+.main-carrito .section-total {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
 .main-carrito .section-total h3 {
   text-transform: uppercase;
 }
 .main-carrito .section-total h4 {
   display: flex;
   justify-content: space-between;
+  padding: 2rem 0;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
 }
 .main-carrito .section-total .button-vaciar {
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 20px;
+  padding: 0.65rem;
   background-color: #FFE843;
 }
 .main-carrito .carrito-section {
@@ -308,7 +325,7 @@ table {
 }
 .main-carrito .carrito-section .carrito-item {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 260px));
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
   place-content: center;
   padding: 0.5rem 1.2rem;
 }
