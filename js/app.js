@@ -31,7 +31,7 @@ const sectionCards = document.getElementById('section-cards');
 const renderizarProductos = (productos) => {
     cardContainer.innerHTML = ''; // limpiamos el contenedor
 
-    productos.forEach(({imagen, envioGratis, nuevo, nombre, descripcion, precio}) => {
+    productos.forEach(({ imagen, envioGratis, nuevo, nombre, descripcion, precio }) => {
         const productoCard = document.createElement('div');
         productoCard.classList.add("card-item");
         productoCard.innerHTML = `
@@ -64,10 +64,11 @@ const localStorageCarrito = () => {
     localStorage.setItem('carrito', JSON.stringify(carrito));
 }
 
-const mostrarCarrito = () => {
-    carrito.forEach(({imagen, envioGratis, nuevo, nombre, descripcion, precio, precioEnvio}) => {
+const mostrarCarrito = (carrito) => {
+    carrito.forEach(({ imagen, envioGratis, nombre, descripcion, precio, nuevo }) => {
         const mostrarCarritoDiv = document.createElement("div");
         const carritoSection = document.getElementById("carrito-section");
+        // console.log(carritoSection);
         mostrarCarritoDiv.innerHTML = `
             <article class="carrito-item">
                 <figure>
@@ -82,7 +83,7 @@ const mostrarCarrito = () => {
                             <span class="cantidad">1</span>
                             <a href="">+</a>
                         </div>
-                        <p>${envioGratis ? 'Envio gratis' : "Precio Envio", precioEnvio} </p>
+                        <p>${envioGratis ? 'Envio gratis' : nuevo} </p>
                         <p>$ ${precio}</p>
                     </div>
                     <button class="carrito-item-eliminar">X</button>
@@ -93,7 +94,7 @@ const mostrarCarrito = () => {
 
         carritoSection.appendChild(mostrarCarritoDiv);
     });
-    
+
 }
 
 
@@ -126,7 +127,7 @@ const filtrarProductosPorId = () => {
     }
 
     console.log(productosFiltrados)
-    
+
     limpiarCardContainer(); // Limpia antes de mostrar el mensaje
     // si no hay productos filtrados mostramos un mensaje
     if (productosFiltrados.length === 0) {
@@ -150,10 +151,11 @@ function limpiarCardContainer() {
     while (cardContainer.firstChild) {
         // Elimina el primer hijo del contenedor.
         // Esto se repetirá hasta que no quede ningún hijo dentro de `cardContainer`.
-        cardContainer.removeChild(cardContainer.firstChild); 
+        cardContainer.removeChild(cardContainer.firstChild);
     }
 }
 // Escucha el evento "DOMContentLoaded", que se activa cuando el DOM está completamente cargado.
-document.addEventListener("DOMContentLoaded", mostrarCarrito);
-
-renderizarProductos(productos);
+document.addEventListener("DOMContentLoaded", () => {
+    mostrarCarrito(carrito);
+    renderizarProductos(productos)
+})
