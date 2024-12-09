@@ -27,6 +27,8 @@ class Producto {
     }
 }
 
+const carrito = []
+
 const productos = [
     new Producto('img/jordan/jordan-1.jpg', 'Air Jordan 1 Low', 'Lo nuevo', 'Zapatillas Jordan para Hombre', 'jordan', 'hombre', 219.999, false, 10.999, ''),
     new Producto('img/jordan/jordan-2.jpg', 'Air Jordan 1 Low', '', 'Zapatillas Jordan para Hombre', 'jordan', 'hombre', 219.999, false, 10.999, '10% de descuento'),
@@ -57,6 +59,19 @@ const renderizarProductos = (productos) => {
 
         cardContainer.appendChild(productoCard);
     });
+
+    // lo convertimos a un array con arra.from
+    const buttonsAgregarCarrito = Array.from(document.getElementsByClassName("button-agregar"));
+    buttonsAgregarCarrito.forEach((button, index) => {
+        console.log(index);
+        // button.addEventListener("click", () => { agregarProducto(index) });
+    });
+}
+
+const agregarProducto = (index) => {
+    const productoSeleccionado = productos[index];
+    carrito.push(productoSeleccionado);
+    console.log("carrito", carrito);
 }
 
 const filtrarProducto = document.querySelectorAll(".filtrar-input");
