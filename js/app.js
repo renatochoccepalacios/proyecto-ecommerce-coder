@@ -11,23 +11,9 @@ class Producto {
         this.precioEnvio = parseFloat(precioEnvio);
         this.descuento = descuento;
     }
-
-    total() {
-        let calculoTotal;
-        // si envio es gratis
-        if (this.envioGratis) {
-            // va a calcular el precio * la cantidad
-            calculoTotal = (this.precio * this.cantidad);
-            return `El total es ${calculoTotal}`;
-        } else {
-            // sino va a multiplicar el precio por la cantidad + el precio del envio
-            calculoTotal = (this.precio * this.cantidad) + this.precioEnvio;
-            return `El total + envio es ${calculoTotal}`;
-        }
-    }
 }
 
-const carrito = []
+const carrito = JSON.parse(localStorage.getItem('carrito')) || [];  // Cargar carrito desde localStorage o iniciar vacío
 
 const productos = [
     new Producto('img/jordan/jordan-1.jpg', 'Air Jordan 1 Low', 'Lo nuevo', 'Zapatillas Jordan para Hombre', 'jordan', 'hombre', 219.999, false, 10.999, ''),
@@ -63,17 +49,61 @@ const renderizarProductos = (productos) => {
     // lo convertimos a un array con arra.from
     const buttonsAgregarCarrito = Array.from(document.getElementsByClassName("button-agregar"));
     buttonsAgregarCarrito.forEach((button, index) => {
-        console.log(index);
-        // button.addEventListener("click", () => { agregarProducto(index) });
+        button.addEventListener("click", () => { agregarProducto(index) });
     });
 }
 
 const agregarProducto = (index) => {
     const productoSeleccionado = productos[index];
     carrito.push(productoSeleccionado);
-    console.log("carrito", carrito);
+    // console.log("carrito", carrito);
+    localStorageCarrito();
 }
 
+const localStorageCarrito = () => {
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+}
+
+const mostrarCarrito = () => {
+    carrito.forEach(({imagen, envioGratis, nuevo, nombre, descripcion, precio, precioEnvio}) => {
+        const mostrarCarritoDiv = document.createElement("div");
+        const carritoSection = document.getElementById("carrito-section");
+        mostrarCarritoDiv.innerHTML = `
+            <article class="carrito-item">
+                <figure>
+                    <img src="../${imagen}" alt="">
+                </figure>
+                <div class="carrito-item-contenido">
+                    <h3>${nombre}</h3>
+                    <p>Z${descripcion}</p>
+                    <div class="contador-precio-contenedor">
+                        <div class="contador-contenedor">
+                            <a href="">-</a>
+                            <span class="cantidad">1</span>
+                            <a href="">+</a>
+                        </div>
+                        <p>${envioGratis ? 'Envio gratis' : "Precio Envio", precioEnvio} </p>
+                        <p>$ ${precio}</p>
+                    </div>
+                    <button class="carrito-item-eliminar">X</button>
+
+                </div>
+            </article>
+        `
+
+        carritoSection.appendChild(mostrarCarritoDiv);
+    });
+    
+}
+
+
+/* const cargarLocalStorage = () => {
+    const carritoGuardado = JSON.parse(localStorage.getItem('carrito')) || [];
+    carrito.push(...carritoGuardado); // aniadimos los productos al carrito actual
+    console.log(carrito);
+} */
+
+// cargarLocalStorage();
 const filtrarProducto = document.querySelectorAll(".filtrar-input");
 
 const filtrarProductosPorId = () => {
@@ -109,8 +139,6 @@ const filtrarProductosPorId = () => {
         renderizarProductos(productosFiltrados);
 
     }
-    // if(filtrosActivos < 0)
-
 }
 
 filtrarProducto.forEach(filtro => {
@@ -125,5 +153,7 @@ function limpiarCardContainer() {
         cardContainer.removeChild(cardContainer.firstChild); 
     }
 }
+// Escucha el evento "DOMContentLoaded", que se activa cuando el DOM está completamente cargado.
+document.addEventListener("DOMContentLoaded", mostrarCarrito);
 
 renderizarProductos(productos);
