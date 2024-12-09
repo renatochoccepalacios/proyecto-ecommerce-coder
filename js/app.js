@@ -13,7 +13,7 @@ class Producto {
     }
 }
 
-const carrito = JSON.parse(localStorage.getItem('carrito')) || [];  // Cargar carrito desde localStorage o iniciar vacío
+export const carrito = JSON.parse(localStorage.getItem('carrito')) || [];  // Cargar carrito desde localStorage o iniciar vacío
 
 const productos = [
     new Producto('img/jordan/jordan-1.jpg', 'Air Jordan 1 Low', 'Lo nuevo', 'Zapatillas Jordan para Hombre', 'jordan', 'hombre', 219.999, false, 10.999, ''),
@@ -26,6 +26,7 @@ const productos = [
 ]
 
 const cardContainer = document.getElementById('card-container');
+console.log(cardContainer)
 const sectionCards = document.getElementById('section-cards');
 
 const renderizarProductos = (productos) => {
@@ -64,38 +65,7 @@ const localStorageCarrito = () => {
     localStorage.setItem('carrito', JSON.stringify(carrito));
 }
 
-const mostrarCarrito = (carrito) => {
-    carrito.forEach(({ imagen, envioGratis, nombre, descripcion, precio, nuevo }) => {
-        const mostrarCarritoDiv = document.createElement("div");
-        const carritoSection = document.getElementById("carrito-section");
-        // console.log(carritoSection);
-        mostrarCarritoDiv.innerHTML = `
-            <article class="carrito-item">
-                <figure>
-                    <img src="../${imagen}" alt="">
-                </figure>
-                <div class="carrito-item-contenido">
-                    <h3>${nombre}</h3>
-                    <p>Z${descripcion}</p>
-                    <div class="contador-precio-contenedor">
-                        <div class="contador-contenedor">
-                            <a href="">-</a>
-                            <span class="cantidad">1</span>
-                            <a href="">+</a>
-                        </div>
-                        <p>${envioGratis ? 'Envio gratis' : nuevo} </p>
-                        <p>$ ${precio}</p>
-                    </div>
-                    <button class="carrito-item-eliminar">X</button>
 
-                </div>
-            </article>
-        `
-
-        carritoSection.appendChild(mostrarCarritoDiv);
-    });
-
-}
 
 
 /* const cargarLocalStorage = () => {
@@ -156,6 +126,6 @@ function limpiarCardContainer() {
 }
 // Escucha el evento "DOMContentLoaded", que se activa cuando el DOM está completamente cargado.
 document.addEventListener("DOMContentLoaded", () => {
-    mostrarCarrito(carrito);
-    renderizarProductos(productos)
+    // mostrarCarrito();
+    renderizarProductos(productos);
 })
