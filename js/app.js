@@ -50,11 +50,12 @@ const renderizarProductos = (productos) => {
     // lo convertimos a un array con arra.from
     const buttonsAgregarCarrito = Array.from(document.getElementsByClassName("button-agregar"));
     buttonsAgregarCarrito.forEach((button, index) => {
+        // console.log(index);
         button.addEventListener("click", () => { agregarProducto(index) });
     });
 }
 
-const agregarProducto = (index) => {
+const agregarProducto = (index = 0) => {
     const productoSeleccionado = productos[index];
     carrito.push(productoSeleccionado);
     // console.log("carrito", carrito);
@@ -75,14 +76,14 @@ const localStorageCarrito = () => {
 } */
 
 // cargarLocalStorage();
-const filtrarProducto = document.querySelectorAll(".filtrar-input");
+const filtrarProducto = Array.from(document.getElementsByClassName("filtrar-input"));
 
 const filtrarProductosPorId = () => {
     // obtenemos los filtros activos
-    const filtrosActivos = Array.from(filtrarProducto) // le pasamos los inputs
+    const filtrosActivos = filtrarProducto // le pasamos los inputs
         .filter(input => input.checked) // solo los tildados
         .map(input => input.id.replace('filtro-', '')) // obtenemos el id
-    console.log(filtrosActivos);
+    // console.log(filtrosActivos);
 
     cardContainer.innerHTML = ''; // limpiamos el contenedor
 
@@ -96,7 +97,7 @@ const filtrarProductosPorId = () => {
         });
     }
 
-    console.log(productosFiltrados)
+    // console.log(productosFiltrados);
 
     limpiarCardContainer(); // Limpia antes de mostrar el mensaje
     // si no hay productos filtrados mostramos un mensaje
