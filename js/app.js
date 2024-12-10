@@ -22,7 +22,9 @@ const productos = [
     new Producto('img/jordan/jordan-4.jpg', 'Air Jordan 1 High OG "Mauve"', 'Lo nuevo', 'Zapatillas Jordan para Hombre', 'jordan', 'hombre', 219.999, true, 0, ''),
     new Producto('img/jordan/jordan-5.jpg', 'Air Jordan 1 Retro High OG', '', 'Zapatillas Jordan para Mujer', 'jordan', 'mujer', 219.999, true, 0, ''),
     new Producto('img/jordan/jordan-6.jpg', 'Air Jordan 1 Mid', 'Lo nuevo', 'Zapatillas Jordan para Mujer', 'jordan', 'mujer', 219.999, false, 15.999, ''),
-    new Producto('img/jordan/jordan-7.jpg', 'Air Jordan 1 Retro High OG', 'Lo nuevo', 'Zapatillas de Moda, Jordan para Mujer', 'jordan', 'mujer', 344.999, true, 0, '')
+    new Producto('img/jordan/jordan-7.jpg', 'Air Jordan 1 Retro High OG', 'Lo nuevo', 'Zapatillas de Moda, Jordan para Mujer', 'jordan', 'mujer', 344.999, true, 0, ''),
+    new Producto('img/jordan/jordan-7.jpg', 'Air Jordan 1 Retro High OG', 'Lo nuevo', '', 'jordan', 'mujer', 344.999, true, 0, '')
+
 ]
 
 const cardContainer = document.getElementById('card-container');
@@ -39,7 +41,7 @@ const renderizarProductos = (productos) => {
         <figure><img src="${imagen}" alt=""></figure>
         <span>${envioGratis ? 'Envio gratis' : nuevo}</span>
         <h3 class="card-titulo">${nombre}</h3>
-        <p class="card-descrip">${descripcion}</p>
+        <p class="card-descrip">${descripcion || "Descripcion no disponible"}</p>
         <p class="card-precio">${precio}</p>
         <button class="button-agregar">Agregar al carrito</button>
         `;
