@@ -300,23 +300,25 @@ table {
   display: grid;
   grid-template-columns: 1fr 500px;
 }
-.main-carrito .section-total {
+.main-carrito .section-total .div-total {
+  position: sticky;
+  top: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
 }
-.main-carrito .section-total h3 {
+.main-carrito .section-total .div-total h3 {
   text-transform: uppercase;
 }
-.main-carrito .section-total h4 {
+.main-carrito .section-total .div-total h4 {
   display: flex;
   justify-content: space-between;
   padding: 2rem 0;
   border-top: 1px solid;
   border-bottom: 1px solid;
 }
-.main-carrito .section-total .button-vaciar {
+.main-carrito .section-total .div-total .button-vaciar {
   text-transform: uppercase;
   font-weight: 600;
   margin-top: 20px;

@@ -5,29 +5,34 @@
     grid-template-columns: 1fr 500px;
 
     .section-total {
-        @include mixin.flex-direccion-column;
-        justify-content: center;
-        gap: 1rem;
+        .div-total {
+            position: sticky;
+            top: 2rem;
+            @include mixin.flex-direccion-column;
+            justify-content: center;
+            gap: 1rem;
 
-        h3 {
-            text-transform: uppercase;
+            h3 {
+                text-transform: uppercase;
+            }
+
+            h4 {
+                display: flex;
+                justify-content: space-between;
+                padding: 2rem 0;
+                border-top: 1px solid;
+                border-bottom: 1px solid;
+            }
+
+            .button-vaciar {
+                text-transform: uppercase;
+                font-weight: 600;
+                margin-top: 20px;
+                padding: 0.65rem;
+                background-color: #FFE843;
+            }
         }
 
-        h4 {
-            display: flex;
-            justify-content: space-between;
-            padding: 2rem 0;
-            border-top: 1px solid;
-            border-bottom: 1px solid;
-        }
-
-        .button-vaciar {
-            text-transform: uppercase;
-            font-weight: 600;
-            margin-top: 20px;
-            padding: 0.65rem;
-            background-color: #FFE843;
-        }
     }
 
     .carrito-section {
