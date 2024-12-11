@@ -86,7 +86,6 @@ const filtrarProductosPorId = () => {
         .filter(input => input.checked) // solo los tildados
         .map(input => input.id.replace('filtro-', '')) // obtenemos el id
     // console.log(filtrosActivos);
-
     cardContainer.innerHTML = ''; // limpiamos el contenedor
 
     let productosFiltrados = productos;
@@ -108,7 +107,6 @@ const filtrarProductosPorId = () => {
         alertNoDisponible.classList.add("alerta-no-disponible");
         alertNoDisponible.textContent = 'No hay productos disponibles';
         cardContainer.appendChild(alertNoDisponible);
-        sectionCards.appendChild(alertNoDisponible);
     } else {
         renderizarProductos(productosFiltrados);
 
