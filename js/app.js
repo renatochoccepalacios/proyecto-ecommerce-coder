@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const buttonsAgregarCarrito = Array.from(document.getElementsByClassName("button-agregar"));
         buttonsAgregarCarrito.forEach((button, index) => {
             button.addEventListener("click", () => agregarProducto(index, productos)); // Agregamos el evento "click"
+            console.log(button)
         });
     };
     renderizarProductos(productos); // Renderizamos los productos en el DOM

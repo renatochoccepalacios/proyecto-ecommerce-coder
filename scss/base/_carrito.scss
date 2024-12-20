@@ -1,4 +1,5 @@
 @use '../utilidades/mixin';
+@use '../utilidades/variables';
 
 .main-carrito {
     display: grid;
@@ -82,10 +83,23 @@
                 }
             }
 
-            .carrito-item-eliminar {
-                position: absolute;
-                top: 0;
-                right: 0;
+            .eliminar-carrito-div {
+                display: flex;
+                justify-content: end;
+
+                .carrito-item-eliminar {
+                    background-color:   variables.$color-rojo-claro;
+                    color: variables.$color-white;
+                    margin-top: 20px;
+                    padding: 0.5rem;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: 0.3s;
+
+                    &:hover {
+                        background-color: variables.$color-rojo;
+                    }
+                }
             }
         }
     }

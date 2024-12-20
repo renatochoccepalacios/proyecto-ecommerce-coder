@@ -361,10 +361,21 @@ table {
   display: flex;
   gap: 1rem;
 }
-.main-carrito .carrito-section .carrito-item .carrito-item-eliminar {
-  position: absolute;
-  top: 0;
-  right: 0;
+.main-carrito .carrito-section .carrito-item .eliminar-carrito-div {
+  display: flex;
+  justify-content: end;
+}
+.main-carrito .carrito-section .carrito-item .eliminar-carrito-div .carrito-item-eliminar {
+  background-color: #FF4D4D;
+  color: #fff;
+  margin-top: 20px;
+  padding: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.main-carrito .carrito-section .carrito-item .eliminar-carrito-div .carrito-item-eliminar:hover {
+  background-color: #FF0000;
 }
 
 /* body {
