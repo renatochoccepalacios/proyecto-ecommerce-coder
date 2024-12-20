@@ -1,0 +1,98 @@
+[
+    {
+        "imagen": "img/jordan/jordan-1.jpg",
+        "nombre": "Air Jordan 1 Low",
+        "nuevo": "Lo nuevo",
+        "descripcion": "Zapatillas Jordan para Hombre",
+        "coleccion": "jordan",
+        "genero": "hombre",
+        "precio": 219.999,
+        "envioGratis": false,
+        "precioEnvio": 10.999,
+        "descuento": ""
+    },
+    {
+        "imagen": "img/jordan/jordan-2.jpg",
+        "nombre": "Air Jordan 1 Low",
+        "nuevo": "",
+        "descripcion": "Zapatillas Jordan para Hombre",
+        "coleccion": "jordan",
+        "genero": "hombre",
+        "precio": 219.999,
+        "envioGratis": false,
+        "precioEnvio": 10.999,
+        "descuento": "10% de descuento"
+    },
+    {
+        "imagen": "img/jordan/jordan-3.jpg",
+        "nombre": "Air Jordan 1 Mid",
+        "nuevo": "Lo nuevo",
+        "descripcion": "Zapatillas Jordan para Hombre",
+        "coleccion": "jordan",
+        "genero": "hombre",
+        "precio": 239.999,
+        "envioGratis": false,
+        "precioEnvio": 0,
+        "descuento": ""
+    },
+    {
+        "imagen": "img/jordan/jordan-4.jpg",
+        "nombre": "Air Jordan 1 High OG \"Mauve\"",
+        "nuevo": "Lo nuevo",
+        "descripcion": "Zapatillas Jordan para Hombre",
+        "coleccion": "jordan",
+        "genero": "hombre",
+        "precio": 219.999,
+        "envioGratis": true,
+        "precioEnvio": 0,
+        "descuento": ""
+    },
+    {
+        "imagen": "img/jordan/jordan-5.jpg",
+        "nombre": "Air Jordan 1 Retro High OG",
+        "nuevo": "",
+        "descripcion": "Zapatillas Jordan para Mujer",
+        "coleccion": "jordan",
+        "genero": "mujer",
+        "precio": 219.999,
+        "envioGratis": true,
+        "precioEnvio": 0,
+        "descuento": ""
+    },
+    {
+        "imagen": "img/jordan/jordan-6.jpg",
+        "nombre": "Air Jordan 1 Mid",
+        "nuevo": "Lo nuevo",
+        "descripcion": "Zapatillas Jordan para Mujer",
+        "coleccion": "jordan",
+        "genero": "mujer",
+        "precio": 219.999,
+        "envioGratis": false,
+        "precioEnvio": 15.999,
+        "descuento": ""
+    },
+    {
+        "imagen": "img/jordan/jordan-7.jpg",
+        "nombre": "Air Jordan 1 Retro High OG",
+        "nuevo": "Lo nuevo",
+        "descripcion": "Zapatillas de Moda, Jordan para Mujer",
+        "coleccion": "jordan",
+        "genero": "mujer",
+        "precio": 344.999,
+        "envioGratis": true,
+        "precioEnvio": 0,
+        "descuento": ""
+    },
+    {
+        "imagen": "img/jordan/jordan-7.jpg",
+        "nombre": "Air Jordan 1 Retro High OG",
+        "nuevo": "Lo nuevo",
+        "descripcion": "",
+        "coleccion": "jordan",
+        "genero": "mujer",
+        "precio": 344.999,
+        "envioGratis": true,
+        "precioEnvio": 0,
+        "descuento": ""
+    }
+]

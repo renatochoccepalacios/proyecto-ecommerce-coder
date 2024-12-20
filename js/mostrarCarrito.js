@@ -1,4 +1,6 @@
-import { carrito } from './app.js';
+const carritoData = JSON.parse(localStorage.getItem('carrito')) || [];
+console.log(carritoData)
+const carrito = carritoData;
 
 const mostrarCarrito = () => {
     carrito.forEach(({ imagen, envioGratis, nombre, descripcion, precio, nuevo }) => {
@@ -28,6 +30,7 @@ const mostrarCarrito = () => {
 
         carritoSection.appendChild(mostrarCarritoDiv);
     });
+
 
 }
 document.addEventListener("DOMContentLoaded", () => {
