@@ -20,11 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <h3>${nombre}</h3>
                         <p>Z${descripcion}</p>
                         <div class="contador-precio-contenedor">
-                            <div class="contador-contenedor">
-                                <a href="">-</a>
-                                <span class="cantidad">1</span>
-                                <a href="">+</a>
-                            </div>
+                            
                             <p>$ ${precio}</p>
                         </div>
                             <div class="eliminar-carrito-div">
@@ -57,15 +53,29 @@ document.addEventListener("DOMContentLoaded", () => {
         if (carrito.length === 0) {
             carritoSection.innerHTML = '<h2 class="text-center">No hay productos en el carrito</h2>';
         }
+
+        const totalPrecio = document.getElementById("total-precio");
+        function totalCarrito() {
+            let acumulador = 0;
+            carrito.forEach(({ precio }) => {
+            acumulador += precio;
+            });
+            totalPrecio.innerHTML = `<h2>Total: $${acumulador}</h2>`;
+        }
+
         const botonVaciarCarrito = document.getElementById("button-vaciar");
-        
+
         botonVaciarCarrito.addEventListener("click", () => {
             carrito.length = 0; // vaciamos el carrito
             localStorage.removeItem('carrito'); // removemos el item
             carritoSection.innerHTML = '<h2 class="text-center">No hay productos en el carrito</h2>';
-            // console.log(carrito)
+            totalCarrito();
+
         });
+        totalCarrito();
+        
     }
+
 
     mostrarCarrito();
 
