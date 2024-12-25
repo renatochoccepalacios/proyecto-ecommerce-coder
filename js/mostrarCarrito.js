@@ -58,22 +58,44 @@ document.addEventListener("DOMContentLoaded", () => {
         function totalCarrito() {
             let acumulador = 0;
             carrito.forEach(({ precio }) => {
-            acumulador += precio;
+                acumulador += precio;
             });
             totalPrecio.innerHTML = `<h2>Total: $${acumulador}</h2>`;
         }
 
-        const botonVaciarCarrito = document.getElementById("button-vaciar");
-
-        botonVaciarCarrito.addEventListener("click", () => {
-            carrito.length = 0; // vaciamos el carrito
-            localStorage.removeItem('carrito'); // removemos el item
-            carritoSection.innerHTML = '<h2 class="text-center">No hay productos en el carrito</h2>';
-            totalCarrito();
-
-        });
-        totalCarrito();
+        function vaciarCarrito() {
+            const botonVaciarCarrito = document.getElementById("button-vaciar");
+            botonVaciarCarrito.addEventListener("click", () => {
+                Swal.fire({
+                    title: "¿Estás seguro que deseas vaciar el carrito?",
+                    text: "Esta acción no se puede deshacer.",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Sí, vaciar",
+                    cancelButtonText: "Cancelar"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Vaciar el carrito
+                        carrito.length = 0; 
+                        localStorage.removeItem('carrito');
+                        carritoSection.innerHTML = '<h2 class="text-center">No hay productos en el carrito</h2>';
+                        totalCarrito();
         
+                        // Mostrar mensaje de confirmación
+                        Swal.fire({
+                            title: "¡Carrito vacío!",
+                            text: "Todos los productos han sido eliminados del carrito.",
+                            icon: "success"
+                        });
+                    }
+                });
+            });
+        }
+        vaciarCarrito();
+        totalCarrito();
+
     }
 
 
