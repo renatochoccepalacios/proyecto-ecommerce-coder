@@ -56,6 +56,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         const productoSeleccionado = productos[index];
         carrito.push(productoSeleccionado); // Lo agregamos al carrito
         localStorageCarrito(); // Guardamos el carrito en localStorage
+        mostrarIconoCarrito();
+
     };
 
     const localStorageCarrito = () => {
@@ -107,4 +109,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             cardContainer.removeChild(cardContainer.firstChild);
         }
     }
+
+    function mostrarIconoCarrito() {
+        const iconoCarrito = document.getElementById("span-icono-carrito");
+        iconoCarrito.textContent = carrito.length; // Mostramos la cantidad de productos en el carrito
+    }
+    mostrarIconoCarrito()
+
 });
