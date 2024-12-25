@@ -58,6 +58,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         localStorageCarrito(); // Guardamos el carrito en localStorage
         mostrarIconoCarrito();
 
+        // Mostramos el mensaje con Toastify
+        Toastify({
+            text: `${productoSeleccionado.nombre} ha sido agregado al carrito.`,
+            duration: 2000,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, // Previene que se cierre al hacer hover
+            style: {
+            background: "linear-gradient(to right,rgb(0, 65, 176),rgb(61, 126, 201))",
+            zIndex: 9999, // Asegura que esté encima de otros elementos
+            },
+        }).showToast();
+
     };
 
     const localStorageCarrito = () => {
