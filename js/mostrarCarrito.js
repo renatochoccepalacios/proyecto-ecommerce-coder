@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
         totalCarrito();
     }
 
-    const eliminarProducto = (index) => {
+    const eliminarProducto = (index = 0) => {
         Swal.fire({
             title: "¿Estás seguro que deseas eliminar este producto?",
             text: "Esta acción no se puede deshacer.",
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     function asignarEventListeners() {
-        const buttonsEliminarCarrito = Array.from(document.getElementsByClassName("carrito-item-eliminar"));
+        const buttonsEliminarCarrito = Array.from(document.getElementsByClassName("carrito-item-eliminar")) || [];
         buttonsEliminarCarrito.forEach((button, index) => {
             button.addEventListener("click", () => {
                 eliminarProducto(index);

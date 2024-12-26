@@ -34,9 +34,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     // }
     const productos = await fetchData(); // Obtenemos los productos desde el archivo JSON
 
-    const renderizarProductos = (productos) => {
+    const renderizarProductos = (productos = []) => {
         cardContainer.innerHTML = ''; // Limpiamos el contenedor
-
         if (productos.length === 0) {
             // Mostramos un mensaje si no hay productos disponibles
             Swal.fire({
@@ -105,7 +104,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         localStorage.setItem('carrito', JSON.stringify(carrito));
     };
 
-    const filtrarProducto = Array.from(document.getElementsByClassName("filtrar-input")); // Obtenemos los inputs de filtros
+    const filtrarProducto = Array.from(document.getElementsByClassName("filtrar-input")) || []; // Obtenemos los inputs de filtros
 
     const filtrarProductosPorId = () => {
         // Obtenemos los filtros activos
