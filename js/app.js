@@ -37,6 +37,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     const renderizarProductos = (productos) => {
         cardContainer.innerHTML = ''; // Limpiamos el contenedor
 
+        if (productos.length === 0) {
+            // Mostramos un mensaje si no hay productos disponibles
+            Swal.fire({
+                icon: 'info',
+                title: 'No hay productos disponibles',
+                text: 'Actualmente no hay productos para mostrar. Por favor, vuelva más tarde.',
+                allowOutsideClick: false, // No permite cerrar al hacer clic fuera
+                allowEscapeKey: false,   // No permite cerrar con la tecla Escape
+                allowEnterKey: false,    // No permite cerrar con Enter
+                showCloseButton: false,  // Oculta el botón de cerrar
+                showConfirmButton: false // Oculta el botón "OK"
+            });
+            return;
+        }
         // Iteramos sobre los productos y creamos las tarjetas dinámicamente
         productos.forEach(({ imagen, envioGratis, nuevo, nombre, descripcion, precio }) => {
             const productoCard = document.createElement('div');
@@ -52,6 +66,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             cardContainer.appendChild(productoCard);
         });
 
+
+
         // Convertimos los botones en un array para agregarles eventos
         const buttonsAgregarCarrito = Array.from(document.getElementsByClassName("button-agregar"));
         buttonsAgregarCarrito.forEach((button, index) => {
@@ -61,7 +77,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
     renderizarProductos(productos); // Renderizamos los productos en el DOM
 
-    const agregarProducto = (index, productos) => {
+    const agregarProducto = (index = 0, productos = []) => {
         // Obtenemos el producto seleccionado por índice
         const productoSeleccionado = productos[index];
         carrito.push(productoSeleccionado); // Lo agregamos al carrito
@@ -77,8 +93,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             position: "right", // `left`, `center` or `right`
             stopOnFocus: true, // Previene que se cierre al hacer hover
             style: {
-            background: "linear-gradient(to right,rgb(0, 65, 176),rgb(61, 126, 201))",
-            zIndex: 9999, // Asegura que esté encima de otros elementos
+                background: "linear-gradient(to right,rgb(0, 65, 176),rgb(61, 126, 201))",
+                zIndex: 9999, // Asegura que esté encima de otros elementos
             },
         }).showToast();
 
