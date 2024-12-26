@@ -2,14 +2,24 @@ const fetchData = async () => {
     try {
         const resultado = await fetch('./productos.json');
         const data = await resultado.json();
-        console.log(data);
+        // console.log(data);
         return data; // Retorna los datos obtenidos
     } catch (error) {
-        console.error(error);
+        Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "¡Algo salió mal al obtener los datos de los productos!",
+            footer: `<a href="#">¿Por qué tengo este problema? ${error.message}</a>`,
+            allowOutsideClick: false, // No permite cerrar al hacer clic fuera
+            allowEscapeKey: false,   // No permite cerrar con la tecla Escape
+            allowEnterKey: false,    // No permite cerrar con Enter
+            showCloseButton: false,  // Oculta el botón de cerrar
+            showConfirmButton: false // Oculta el botón "OK"
+        });
         return []; // Devuelve un array vacío si ocurre un error
-    } finally {
+    }/*  finally {
         console.log("fetch finalizado");
-    }
+    } */
 };
 
 let carrito = JSON.parse(localStorage.getItem('carrito')) || []; // Cargamos el carrito desde localStorage o inicializamos vacío
@@ -18,10 +28,10 @@ let carrito = JSON.parse(localStorage.getItem('carrito')) || []; // Cargamos el 
 document.addEventListener('DOMContentLoaded', async () => {
     // Obtenemos el contenedor de las tarjetas
     const cardContainer = document.getElementById('card-container');
-    if (!cardContainer) {
-        console.error('El contenedor "card-container" no se encontró.');
-        return;
-    }
+    // if (!cardContainer) {
+    //     console.error('El contenedor "card-container" no se encontró.');
+    //     return;
+    // }
     const productos = await fetchData(); // Obtenemos los productos desde el archivo JSON
 
     const renderizarProductos = (productos) => {
@@ -46,7 +56,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const buttonsAgregarCarrito = Array.from(document.getElementsByClassName("button-agregar"));
         buttonsAgregarCarrito.forEach((button, index) => {
             button.addEventListener("click", () => agregarProducto(index, productos)); // Agregamos el evento "click"
-            console.log(button)
+            // console.log(button)
         });
     };
     renderizarProductos(productos); // Renderizamos los productos en el DOM
