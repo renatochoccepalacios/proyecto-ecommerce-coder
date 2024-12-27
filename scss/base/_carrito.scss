@@ -1,107 +1,111 @@
 @use '../utilidades/mixin';
 @use '../utilidades/variables';
 
-.main-carrito {
-    display: grid;
-    grid-template-columns: 1fr 500px;
-
-    .section-total {
-        .div-total {
-            position: sticky;
-            top: 2rem;
-            @include mixin.flex-direccion-column;
-            justify-content: center;
-            gap: 1rem;
-
-            h3 {
-                text-transform: uppercase;
-            }
-
-            h4 {
-                display: flex;
-                justify-content: space-between;
-                padding: 2rem 0;
-                border-top: 1px solid;
-                border-bottom: 1px solid;
-            }
-
-            .button-vaciar {
-                text-transform: uppercase;
-                font-weight: 600;
-                margin-top: 20px;
-                padding: 0.65rem;
-                background-color: #FFE843;
-            }
-        }
-
-    }
-
-    .carrito-section {
+.body-carrito {
+    padding: 1rem 2rem;
+    .main-carrito {
         display: grid;
-        grid-template-columns: repeat(1, minmax(min(500px, 100%), 1fr));
-
-        .carrito-item {
-            display: grid;
-            grid-template-columns: 400px 1fr;
-            place-content: center;
-            padding: 0.5rem 1.2rem;
-
-            figure {
-                width: 100%;
-                max-height: 300px;
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-            }
-
-            .carrito-item-contenido {
-                display: flex;
-                flex-direction: column;
-                position: relative;
+        grid-template-columns: repeat(auto-fill, minmax(min(500px, 100%), 1fr));
+    
+        .section-total {
+            position: sticky;
+            bottom: 0;
+            background-color: variables.$color-white;
+            .div-total {
+                position: sticky;
+                top: 2rem;
+                @include mixin.flex-direccion-column;
                 justify-content: center;
-
-                h3 {}
-
-                p {}
-
-                .contador-precio-contenedor {
+                gap: 1rem;
+    
+                h3 {
+                    text-transform: uppercase;
+                }
+    
+                h4 {
                     display: flex;
-                    text-align: center;
-                    align-items: center;
                     justify-content: space-between;
-
-                    .contador-contenedor {
-                        padding: 1rem;
-                        display: flex;
-                        gap: 1rem;
-                    }
-
-                    p {}
+                    padding: 2rem 0;
+                    border-top: 1px solid;
+                    border-bottom: 1px solid;
+                }
+    
+                .button-vaciar {
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    margin-top: 20px;
+                    padding: 0.65rem;
+                    background-color: #FFE843;
                 }
             }
-
-            .eliminar-carrito-div {
-                display: flex;
-                justify-content: end;
-
-                .carrito-item-eliminar {
-                    background-color:   variables.$color-rojo-claro;
-                    color: variables.$color-white;
-                    margin-top: 20px;
-                    padding: 0.5rem;
-                    border-radius: 5px;
-                    cursor: pointer;
-                    transition: 0.3s;
-
-                    &:hover {
-                        background-color: variables.$color-rojo;
+    
+        }
+    
+        .carrito-section {
+            display: grid;
+            grid-template-columns: repeat(1, minmax(min(500px, 100%), 1fr));
+            .carrito-item {
+                display: grid;
+                grid-template-columns: 400px 1fr;
+                place-content: center;
+                padding: 0.5rem 1.2rem;
+    
+                figure {
+                    width: 100%;
+                    max-height: 300px;
+    
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+    
+                .carrito-item-contenido {
+                    display: flex;
+                    flex-direction: column;
+                    position: relative;
+                    justify-content: center;
+    
+                    h3 {}
+    
+                    p {}
+    
+                    .contador-precio-contenedor {
+                        display: flex;
+                        text-align: center;
+                        align-items: center;
+                        justify-content: space-between;
+    
+                        .contador-contenedor {
+                            padding: 1rem;
+                            display: flex;
+                            gap: 1rem;
+                        }
+    
+                    }
+                }
+    
+                .eliminar-carrito-div {
+                    display: flex;
+                    justify-content: end;
+    
+                    .carrito-item-eliminar {
+                        background-color:   variables.$color-rojo-claro;
+                        color: variables.$color-white;
+                        margin-top: 20px;
+                        padding: 0.5rem;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        transition: 0.3s;
+    
+                        &:hover {
+                            background-color: variables.$color-rojo;
+                        }
                     }
                 }
             }
         }
+    
     }
-
 }
