@@ -2,7 +2,6 @@ const fetchData = async () => {
     try {
         const resultado = await fetch('./productos.json');
         const data = await resultado.json();
-        // console.log(data);
         return data; // Retorna los datos obtenidos
     } catch (error) {
         Swal.fire({
@@ -28,10 +27,20 @@ let carrito = JSON.parse(localStorage.getItem('carrito')) || []; // Cargamos el 
 document.addEventListener('DOMContentLoaded', async () => {
     // Obtenemos el contenedor de las tarjetas
     const cardContainer = document.getElementById('card-container');
-    // if (!cardContainer) {
-    //     console.error('El contenedor "card-container" no se encontró.');
-    //     return;
-    // }
+    if (!cardContainer) {
+        Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "¡El contenedor de tarjetas no se encontró en el DOM!",
+            footer: `<a href="#">¿Por qué tengo este problema?</a>`,
+            allowOutsideClick: false, // No permite cerrar al hacer clic fuera
+            allowEscapeKey: false,   // No permite cerrar con la tecla Escape
+            allowEnterKey: false,    // No permite cerrar con Enter
+            showCloseButton: false,  // Oculta el botón de cerrar
+            showConfirmButton: false // Oculta el botón "OK"
+        });
+        return;
+    }
     const productos = await fetchData(); // Obtenemos los productos desde el archivo JSON
 
     const renderizarProductos = (productos = []) => {
@@ -151,7 +160,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function mostrarIconoCarrito() {
         const iconoCarrito = document.getElementById("span-icono-carrito");
-        iconoCarrito.textContent = carrito.length; // Mostramos la cantidad de productos en el carrito
+        iconoCarrito.textContent = carrito.length || 0; // Mostramos la cantidad de productos en el carrito, por defecto 0
     }
     mostrarIconoCarrito()
 
