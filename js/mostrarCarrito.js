@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </figure>
                     <div class="carrito-item-contenido">
                         <h3>${nombre}</h3>
-                        <p>Z${descripcion}</p>
+                        <p>${descripcion || "Descripcion no disponible"}</p>
                         <div class="contador-precio-contenedor">
                             
                             <p>$ ${precio}</p>

@@ -6,4 +6,20 @@
             }
         }
     }
+
+    .main-carrito {
+        .carrito-section {
+            .carrito-item {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .carrito-item-contenido {
+                .eliminar-carrito-div {
+                    .carrito-item-eliminar {
+                        width: auto;
+                    }
+                }
+            }
+        }
+    }   
 }
