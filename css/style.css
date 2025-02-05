@@ -287,7 +287,6 @@ table {
   transform: rotate(-180deg);
 }
 .main-principal .aside-visible {
-  opacity: 1;
   transform: translateX(0);
   box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.75);
 }
